@@ -37,7 +37,7 @@ resource "azurerm_storage_account" "pgtfdemo_sa" {
 
 resource "azurerm_storage_share" "pgtfdemo_la_share" {
     name = "${var.application_name}-${var.environment_name}-pgtfdemoSA-la-share"
-    storage_account_name = azurerm_storage_account.pgtfdemo_sa.name
+    storage_account_id = azurerm_storage_account.pgtfdemo_sa.id
     quota = 50
 }
 
