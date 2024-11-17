@@ -110,6 +110,6 @@ resource "azurerm_private_endpoint" "pgtfdemo_la_pe" {
 
   private_dns_zone_group {
     name = "la-group"
-    private_dns_zone_ids = [azurerm_private_dns_zone.pgtfdemo_private_dns_zone[la].id]
+    private_dns_zone_ids = [azurerm_private_dns_zone.pgtfdemo_private_dns_zone["la"].id]
   } 
 }
