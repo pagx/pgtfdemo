@@ -4,7 +4,6 @@ locals {
 
    la_name = "pgtfdemoLA"
    sa_name = "pgtfdemoSA"
-
    asp_name = "pgtfdemo_asp"
 
 

@@ -13,7 +13,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "pgtfdemo_private_dns_z
 }
 
 resource "azurerm_storage_account" "pgtfdemo_sa" {
-    name = "${var.application_name}-${var.environment_name}-pgtfdemoSA"
+    name = "pginfrademo${var.environment_name}sa"
     resource_group_name   = azurerm_resource_group.main.name
     location            = azurerm_resource_group.main.location
     account_tier             = "Standard"
