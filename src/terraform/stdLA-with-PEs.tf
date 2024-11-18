@@ -36,7 +36,7 @@ resource "azurerm_storage_account" "pgtfdemo_sa" {
 }
 
 resource "azurerm_storage_share" "pgtfdemo_la_share" {
-    name = "${var.application_name}-${var.environment_name}-pgtfdemoSA-la-share"
+    name = "${var.environment_name}pgtfdemosalashare"
     storage_account_name = azurerm_storage_account.pgtfdemo_sa.name
     quota = 50
 }
@@ -46,7 +46,7 @@ resource "azurerm_private_endpoint" "pgtfdemo_sa_pe" {
   name = "${azurerm_storage_account.pgtfdemo_sa.name}-${each.key}-pe"
   location = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
-  subnet_id = azurerm_subnet.pgtfdemo_pe_snet
+  subnet_id = azurerm_subnet.pgtfdemo_pe_snet.id
 
   private_service_connection {
     name = "${azurerm_storage_account.pgtfdemo_sa.name}-${each.key}-priv-svc-conn"
@@ -71,7 +71,7 @@ resource "azurerm_service_plan" "pgtfdemo_app_svc_plan" {
 
 resource "azurerm_logic_app_standard" "pgtfdemo_la" {
   depends_on = [ azurerm_private_endpoint.pgtfdemo_sa_pe ]
-  name = "${var.application_name}-${var.environment_name}-pgtfdemoLA"
+  name = "${var.environment_name}pginfratfdemola"
   location = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   storage_account_name = azurerm_storage_account.pgtfdemo_sa.name
