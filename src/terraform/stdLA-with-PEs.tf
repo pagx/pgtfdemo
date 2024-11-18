@@ -99,7 +99,7 @@ resource "azurerm_private_endpoint" "pgtfdemo_la_pe" {
   name = "${azurerm_logic_app_standard.pgtfdemo_la.name}-pe"
   location = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
-  subnet_id = azurerm_subnet.pgtfdemo_pe_snet
+  subnet_id = azurerm_subnet.pgtfdemo_pe_snet.id
 
   private_service_connection {
     name = "${azurerm_logic_app_standard.pgtfdemo_la.name}-priv-svc-conn"
