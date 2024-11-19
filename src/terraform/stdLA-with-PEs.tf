@@ -21,6 +21,7 @@ resource "azurerm_storage_account" "pgtfdemo_sa" {
     min_tls_version                 = "TLS1_2"
     allow_nested_items_to_be_public = false
     public_network_access_enabled = false
+    infrastructure_encryption_enabled = false
 
     network_rules {
         default_action = "Deny"
