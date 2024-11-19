@@ -87,6 +87,7 @@ resource "azurerm_logic_app_standard" "pgtfdemo_la" {
     "WEBSITE_NODE_DEFAULT_VERSION" : "~18"
   }
   site_config {
+    public_network_access_enabled = false
     use_32_bit_worker_process = true
     ftps_state = "Disabled"
     websockets_enabled = false
