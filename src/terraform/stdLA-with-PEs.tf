@@ -25,8 +25,8 @@ resource "azurerm_storage_account" "pgtfdemo_sa" {
 
     network_rules {
         default_action = "Deny"
-        bypass = [ "AzureServices" ]
-        virtual_network_subnet_ids = [azurerm_subnet.pgtfdemo_appsvcs_snet.id]
+        bypass = [ "AzureServices", "Metrics" ]
+        virtual_network_subnet_ids = [azurerm_subnet.pgtfdemo_appsvcs_snet.id, azurerm_subnet.pgtfdemo_pe_snet.id]
     }
 
     tags = {
