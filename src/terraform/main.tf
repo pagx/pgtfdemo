@@ -21,6 +21,7 @@ resource "azurerm_subnet" "pgtfdemo_pe_snet" {
   name             = "pg-infra-demo-${var.environment_name}-pe-snet"
   resource_group_name = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.pgtfdemo_vnet.name
+  service_endpoints = [ "Microsoft.Storage" ]
   address_prefixes = var.environment_name == "dev"? ["10.159.41.0/26"] : ["10.160.41.0/26"]
 }
 resource "azurerm_subnet" "pgtfdemo_appsvcs_snet" {
