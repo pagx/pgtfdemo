@@ -81,6 +81,7 @@ resource "azurerm_logic_app_standard" "pgtfdemo_la" {
   virtual_network_subnet_id = azurerm_subnet.pgtfdemo_appsvcs_snet.id
   https_only = true
   version = "~4"
+  
   app_settings = {
     "WEBSITE_CONTENTOVERVNET" : "1"
     "FUNCTIONS_WORKER_RUNTIME" : "node"
