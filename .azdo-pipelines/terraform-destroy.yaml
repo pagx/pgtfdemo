@@ -29,7 +29,7 @@ jobs:
       TF_VAR_application_name: $(ApplicationName)
 
   - task: Bash@3
-    displayName: "terraform plan"
+    displayName: "terraform destroy"
     inputs:
       filePath: .azdo-pipelines/scripts/terraform-with-backend.sh
       workingDirectory: $(WorkingDirectory)
@@ -44,4 +44,3 @@ jobs:
       BACKEND_STORAGE_CONTAINER_NAME: $(BACKEND_STORAGE_CONTAINER_NAME)
       TF_BACKEND_KEY: $(ApplicationName)-$(EnvironmentName)
       TF_VAR_application_name: $(ApplicationName)
-      
